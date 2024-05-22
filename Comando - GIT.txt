@@ -21,3 +21,8 @@ Passo a passo:
 2° checar status: git status
 3° commit: git commit
 4° enviar arquivo para repositorio: git push
+
+----------------------------------------------
+Trazer atualizações do servidor para o local.
+
+git pull
