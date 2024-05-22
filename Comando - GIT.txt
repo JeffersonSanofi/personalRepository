@@ -1,0 +1,11 @@
+Comandos:
+
+Iniciar git: git init
+Verificar status: git status
+
+adicionar: git add 
+
+Criar uma nova branch: git branch -m 'nome da branch'
+enviar um commit: git commit -m "texto do commit"
+
+Adicionar varios arquivos: git add .
