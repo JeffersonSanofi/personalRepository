@@ -9,3 +9,15 @@ Criar uma nova branch: git branch -m 'nome da branch'
 enviar um commit: git commit -m "texto do commit"
 
 Adicionar varios arquivos: git add .
+
+commit:
+- Enviar varios arquivos: git commit -a -m
+-a => all
+-m => mensagem
+
+
+Passo a passo:
+1° adicionar arquivos
+2° checar status: git status
+3° commit: git commit
+4° enviar arquivo para repositorio: git push
