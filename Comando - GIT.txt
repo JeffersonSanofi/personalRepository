@@ -26,3 +26,7 @@ Passo a passo:
 Trazer atualizações do servidor para o local.
 
 git pull
+
+--------------------------------
+
+git checkout -> serve para resetar a última alteração feita no arquivo.
