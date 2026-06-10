@@ -1,0 +1,66 @@
+# config.yaml
+# Preencha este arquivo para configurar seus pipelines de dados.
+# Execute com: python bilhete.py
+
+pipelines:
+
+  - name: vendas
+    source:
+      path: data/input/vendas.csv
+      # format: csv         # opcional — detectado automaticamente pela extensão
+      # options:            # argumentos extras do pandas (ex: sep, encoding)
+      #   sep: ";"
+
+    # BRONZE: cópia bruta do arquivo de origem, sem transformações
+    bronze:
+      save_as: vendas_raw
+      format: parquet        # csv | json | parquet | xlsx
+
+    # SILVER: limpeza e padronização
+    silver:
+      save_as: vendas_limpo
+      format: parquet
+      transformations:
+
+        - type: rename_columns
+          mapping:
+            "Nome Cliente": nome_cliente
+            "Valor Venda":  valor_venda
+            "Data":         data_venda
+            "Produto":      produto
+
+        - type: drop_duplicates
+
+        - type: drop_nulls
+          columns: [nome_cliente, valor_venda]
+
+        - type: cast_types
+          columns:
+            data_venda:  date
+            valor_venda: float
+
+        - type: filter_rows
+          condition: "valor_venda > 0"
+
+    # GOLD: agregações e lógica de negócio
+    gold:
+      save_as: vendas_por_cliente
+      format: parquet
+      transformations:
+
+        - type: aggregate
+          group_by: [nome_cliente]
+          aggregations:
+            total_vendas:
+              column: valor_venda
+              func: sum
+            qtd_pedidos:
+              column: valor_venda
+              func: count
+            ticket_medio:
+              column: valor_venda
+              func: mean
+
+        - type: sort
+          columns: [total_vendas]
+          ascending: false

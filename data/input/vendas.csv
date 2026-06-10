@@ -1,0 +1,12 @@
+Nome Cliente,Valor Venda,Data,Produto
+João Silva,150.00,2024-01-15,Produto A
+Maria Santos,200.00,2024-01-16,Produto B
+João Silva,75.50,2024-01-17,Produto A
+Pedro Costa,300.00,2024-01-18,Produto C
+Maria Santos,125.00,2024-01-19,Produto A
+,50.00,2024-01-20,Produto B
+João Silva,-10.00,2024-01-21,Produto D
+Pedro Costa,450.00,2024-01-22,Produto C
+Maria Santos,200.00,2024-01-16,Produto B
+Ana Lima,180.00,2024-01-23,Produto A
+Ana Lima,220.00,2024-01-24,Produto C
