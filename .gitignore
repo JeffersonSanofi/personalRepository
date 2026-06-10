@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+
+data/bronze/
+data/silver/
+data/gold/
